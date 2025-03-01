@@ -430,7 +430,12 @@ ClientIdentifier=mac
 >
 > 一些体验可以参考 <https://pwe.cat/zijing-dhcpv6/>
 
-最近的尝试发现，使用较新版本的 `systemd-networkd` 能稳定获取地址。
+最近的体验发现，如果 `systemd-networkd` 拿不到 IPv6 地址，设置 DUIDType 为 LLT 可以解决问题。
+
+```
+[DHCPv6]
+DUIDType=link-layer-time
+```
 
 ### 30分钟无流量掉准入
 
